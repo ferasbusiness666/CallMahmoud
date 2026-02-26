@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>!!CALL MAHMOUD!!</title>
+    <meta name="description"
+        content="A customizable bold message display for Mahmoud. Change background and text colors in real-time.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@900&family=Inter:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main id="app-container">
+        <!-- Background Dots (Left) -->
+        <div class="dot-panel left" id="bg-dots">
+            <button class="dot" style="background: #0f172a;" data-color="#0f172a" title="Midnight"></button>
+            <button class="dot" style="background: #1e1b4b;" data-color="#1e1b4b" title="Deep Indigo"></button>
+            <button class="dot" style="background: #450a0a;" data-color="#450a0a" title="Oxblood"></button>
+            <button class="dot" style="background: #064e3b;" data-color="#064e3b" title="Forest"></button>
+            <button class="dot" style="background: #701a75;" data-color="#701a75" title="Plum"></button>
+            <div class="dot-divider"></div>
+            <input type="color" id="bg-color-picker" class="dot-picker" value="#0f172a" title="Custom Background">
+        </div>
+
+        <!-- Central Text -->
+        <section class="display-area">
+            <h1 id="main-text">!!CALL MAHMOUD!!</h1>
+        </section>
+
+        <!-- Text Dots (Right) -->
+        <div class="dot-panel right" id="text-dots">
+            <button class="dot" style="background: #ffffff;" data-color="#ffffff" title="Clean White"></button>
+            <button class="dot" style="background: #60a5fa;" data-color="#60a5fa" title="Sky Blue"></button>
+            <button class="dot" style="background: #f472b6;" data-color="#f472b6" title="Rose Pink"></button>
+            <button class="dot" style="background: #fbbf24;" data-color="#fbbf24" title="Amber"></button>
+            <button class="dot" style="background: #34d399;" data-color="#34d399" title="Emerald"></button>
+            <div class="dot-divider"></div>
+            <input type="color" id="text-color-picker" class="dot-picker" value="#ffffff" title="Custom Text Color">
+            <div class="dot-divider"></div>
+            <div class="size-control">
+                <input type="range" id="text-size-slider" min="2" max="15" step="0.5" value="10" title="Text Size">
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>
