@@ -1,0 +1,128 @@
+/* VERSION 7.0 - AUTOMATIC SMOOTH COLOR SHIFT */
+:root {
+    --bg-color: #0c0e14;
+    --text-size: 15;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-color);
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#app-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Central Text Area */
+.display-area {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+#main-text {
+    font-size: calc(var(--text-size) * 1vw);
+    text-align: center;
+    line-height: 0.9;
+    letter-spacing: -0.05em;
+    font-weight: 900;
+    text-transform: uppercase;
+
+    /* SMOOTH AUTOMATIC COLOR SHIFT */
+    background: linear-gradient(45deg,
+            #ff3e3e, #ffbe3e, #3eff62, #3ebeff, #a03eff, #ff3ea0);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: flowGradient 10s ease infinite, entryFade 1.5s ease;
+
+    word-break: break-word;
+    max-width: 95vw;
+    transition: font-size 0.2s ease;
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.1));
+}
+
+@keyframes flowGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes entryFade {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Minimal Size Control at the bottom */
+.size-panel {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+}
+
+input[type="range"] {
+    width: 150px;
+    height: 6px;
+    cursor: pointer;
+    accent-color: #fff;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 800px) {
+    #main-text {
+        font-size: calc(var(--text-size) * 4vw);
+    }
+
+    .size-panel {
+        bottom: 20px;
+        width: 120px;
+        padding: 8px 15px;
+    }
+
+    input[type="range"] {
+        width: 100%;
+    }
+}
